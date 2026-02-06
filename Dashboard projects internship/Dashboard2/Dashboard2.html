@@ -45,14 +45,27 @@
         }
         & a:hover{
             background-color: rgb(203, 229, 223);
+            padding: 10px;
         }
     }
+
+    .logout-btn{
+        margin-top: 90px;
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        background-color: rgb(203, 229, 223);
+        display: flex;
+        justify-content: center;
+        }
 
 </style>
 </head>
 <body>
     <div class="grid-container">
+
         <aside class="sidebar">
+
             <h1 class="flex-1"><img src="#" class="logo_img">Flup</h1>
             <div>MARKETING</div>
             <ul style="list-style-type: none">
@@ -63,21 +76,21 @@
                 <li><a href="#"><img src="#" class="">Customers</a></li>
                 <li><a href="#"><img src="#" class="">Discounts</a></li>
             </ul>
+
             <div>PAYMENTS</div>
             <ul style="list-style-type:none ;">
                 <li><a href="#"><img src="#" class="">Ledger</a></li>
                 <li><a href="#"><img src="#" class="">Taxes</a></li>
             </ul>
+
             <div>SYSTEM</div>
             <ul style="list-style-type:none ;">
                 <li><a href="#"><img src="#" class="">Settings</a></li>
                 <li><a href="#"><img src="#" class="">Dark mode</a></li>
             </ul>
-            <div class="user-profile">
-                <div class="user-info">
-                    <div class="user-avatar">Helia</div>
-                </div>
-            </div>
+
+            
+            <button class="logout-btn">Log Out</button>
         </aside>
     </div>
 </body>
