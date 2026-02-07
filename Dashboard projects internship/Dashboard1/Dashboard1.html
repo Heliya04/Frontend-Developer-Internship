@@ -17,23 +17,6 @@
       min-height: 100vh;
     }
 
-    .relative {
-      position: relative;
-    }
-
-    .absolute {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      top: 50%;
-      left: 8px;
-      transform: translateY(-50%);
-    }
-
-    .flex-1 {
-      flex: 1;
-    }
-
     .dashboard {
       display: grid;
       grid-template-columns: 180px 1fr;
@@ -197,7 +180,27 @@
     justify-content: space-between;
     margin-top: 35px;
     background-color: red;
+    & a:hover{
+      background-color:rgba(255, 255, 255, 0.478);
+    }
   }
+
+  .relative {
+      position: relative;
+    }
+
+    .absolute {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      left: 8px;
+      transform: translateY(-50%);
+    }
+
+    .flex-1 {
+      flex: 1;
+    }
 
   </style>
 </head>
@@ -272,12 +275,11 @@
 
         <div class="gallery-container">
           <div class="gallery-img" style="list-style-type: none;">
-            <a><img src="#"></a>
-            <a><img src="#"></a>
-            <a><img src="#"></a>
-            <a><img src="#"></a>
-            <a><img src="#"></a>
-            
+            <a href="#"><img src="#"></a>
+            <a href="#"><img src="#"></a>
+            <a href="#"><img src="#"></a>
+            <a href="#"><img src="#"></a>
+            <a href="#"><img src="#"></a>
           </div>
         </div>
 
