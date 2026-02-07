@@ -187,13 +187,14 @@
 
   .gallery-container{
     display: grid;
-    grid-template: repeat(4,1fr);
-    grid-gap: 10px;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 20px;
   }
 
   .gallery-img{
     display: flex;
-    justify-content:space-around;
+    justify-content: space-between;
     margin-top: 35px;
     background-color: red;
   }
@@ -271,10 +272,12 @@
 
         <div class="gallery-container">
           <div class="gallery-img" style="list-style-type: none;">
-            <li><img src="#"></li>
-            <li><img src="#"></li>
-            <li><img src="#"></li>
-            <li><img src="#"></li>
+            <a><img src="#"></a>
+            <a><img src="#"></a>
+            <a><img src="#"></a>
+            <a><img src="#"></a>
+            <a><img src="#"></a>
+            
           </div>
         </div>
 
