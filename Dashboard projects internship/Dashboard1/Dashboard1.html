@@ -71,6 +71,7 @@
       margin-left: 50px;
       border: none;
       color: white;
+      margin-bottom: 20px;
     }
 
     .dropdown-content {
@@ -102,6 +103,7 @@
       color: white;
       text-decoration: none;
       padding: 8px 0;
+      margin-top: 10px;
       }
       & a:hover {
       background-color: rgba(255, 255, 255, 0.1);
@@ -115,8 +117,9 @@
     .navbar {
       display: flex;
       align-items: center;
-      gap: 30px;
-      padding: 10px 0;
+      justify-content: space-between;
+      gap: 50px;
+      padding: 20px 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.12);
       margin-bottom: 30px;
     }
@@ -125,16 +128,14 @@
       display: flex;
       gap: 20px;
       list-style: none;
-    }
-
-    .nav-links a {
+      & a{
       color: white;
       text-decoration: none;
       padding: 8px 12px;
-    }
-
-    .nav-links a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+      }
+      & a:hover{
+        background-color: rgba(255, 255, 255, 0.1);
+      }
     }
 
     .help-img {
@@ -148,11 +149,11 @@
       background-size: cover;
       height: 40px;
       width: 40px;
-       border: 1px solid rgba(255, 255, 255, 0.32);
-     border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      border-radius: 8px;
     }
   
-    #search {
+    .search-container {
       padding-left: 36px;
       background-color: rgba(255, 255, 255, 0.12);
       border: none;
@@ -213,8 +214,8 @@
         <nav class="sidebar-nav">
           <ul>
             <li><a href="#">Settings</a></li>
-            <li><a href="#">Help<img src="" class="help-img"></a></li>
-            <li><a href="#">Profile<img src="" class="profile-img"></a></li>
+            <li><a href="#">Help<img src="#" class="help-img"></a></li>
+            <li><a href="#">Profile<img src="#" class="profile-img"></a></li>
           </ul>
         </nav>
       </div>
@@ -232,7 +233,7 @@
               <li><a href="#">About</a></li>
             </ul>
             <div class="search-container">
-                <img src="./photo/search_icon.png" class="absolute">
+                <img src="#" class="absolute">
                 <input type="text" class="search-input" placeholder="Search...">
           </div>
         </nav>
