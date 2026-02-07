@@ -176,17 +176,19 @@
 
   .row{
     display: flex;
-    justify-content: center;
     margin-left: 20px;
     margin-top: 35px;
-    & a:hover{
-      background-color:rgba(255, 255, 255, 0.478);
-    }
+    gap:20px;
   }
 
   .column{
     display: flex;
     flex-wrap: wrap;
+    gap:20px;
+  }
+
+  .column-img{
+    
   }
 
   .relative {
@@ -280,16 +282,15 @@
         <div class="gallery-container">
           <div class="row">
             <div class="column">
-              <a href=""><img src="./photo/self.png" height="100px"; width="100px"></a>
-              <a href="#"><img src="./photo/por.png" height="200px" width="100px"></a>
-              <a href="#"><img src="#"></a>
-              <a href="#"><img src="#"></a>
+              <div class="column-img">
+                <img src="./photo/self.png" height="100px"; width="100px">
+                <img src="./photo/por.png" height="200px" width="200px">
+                <img src="./photo/por.png" height="200px" width="200px">
+                <img src="./photo/self.png" height="200px"; width="200px">
+              </div>
             </div>
             <div class="column">
-              <a href="#"><img src="./photo/por.png" height="200px" width="200px"></a>
-              <a href="#"><img src="./photo/self.png" height="300px" width="300x"></a>
-              <a href="#"><img src="#"></a>
-              <a href="#"><img src="#"></a>
+              <a href=""><img src="./photo/self.png" height="300px"; width="300px"></a>
             </div>
           </div>
         </div>
