@@ -184,7 +184,19 @@
       box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
     }
   }
-  
+
+  .gallery-container{
+    display: grid;
+    grid-template: repeat(4,1fr);
+    grid-gap: 10px;
+  }
+
+  .gallery-img{
+    display: flex;
+    justify-content:space-around;
+    margin-top: 35px;
+    background-color: red;
+  }
 
   </style>
 </head>
@@ -255,6 +267,15 @@
             <div class="category-card"><img src="#">Sport</div>
             <div class="category-card"><img src="#">Car</div>
             <div class="category-card"><img src="#">More</div>
+        </div>
+
+        <div class="gallery-container">
+          <div class="gallery-img" style="list-style-type: none;">
+            <li><img src="#"></li>
+            <li><img src="#"></li>
+            <li><img src="#"></li>
+            <li><img src="#"></li>
+          </div>
         </div>
 
     </main>
