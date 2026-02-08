@@ -186,17 +186,26 @@
         gap: 10px;
       }
 
-      .column-img {
-        margin: 0 auto;
-        overflow: hidden;
-        & img {
-          margin-bottom: 5px;
-          aspect-ratio: 1 / 1;
-          width: 100%;
-          height: auto;
-          object-fit: cover;
-        }
+      .responsive{
+        display: flex;
+        flex-wrap: wrap;
+        padding:0 4px;
       }
+
+    .column-img {
+      flex: 25%;
+      max-width: 25%;
+      padding: 0 4px;
+      margin: 0 auto;
+      overflow: hidden;
+      & img {
+        margin-bottom: 5px;
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
 
       .relative {
         position: relative;
@@ -290,19 +299,21 @@
         </div>
 
         <div class="gallery-container">
-          <div class="column-img">
-            <img src="./photo/self.png" />
-            <img src="./photo/por.png" />
-          </div>
-          <div class="column-img">
-            <img src="./photo/por.png" />
-            <img src="./photo/self.png" />
-          </div>
-          <div class="column-img">
-            <img src="./photo/self.png" />
-          </div>
-          <div class="column-img">
-            <img src="./photo/por.png" />
+          <div class="responsive">
+            <div class="column-img">
+              <img src="./photo/self.png" />
+              <img src="./photo/por.png" />
+            </div>
+            <div class="column-img">
+              <img src="./photo/por.png" />
+              <img src="./photo/self.png" />
+            </div>
+            <div class="column-img">
+              <img src="./photo/self.png" />
+            </div>
+            <div class="column-img">
+              <img src="./photo/por.png" />
+            </div>
           </div>
         </div>
       </main>
