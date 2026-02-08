@@ -1,255 +1,270 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-
-<head>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      font-size: 15px;
-      background-color: #101010;
-      color: white;
-      min-height: 100vh;
-    }
-
-    .dashboard {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      min-height: 100vh;
-    }
-
-    .sidebar {
-      border-right: 1px solid rgba(255, 255, 255, 0.12);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 20px 0;
-    }
-
-    .sidebar-section h2 {
-      padding: 0 30px;
-      margin-bottom: 20px;
-    }
-
-    .dropdown {
-      position: relative;
-      display: inline-block;
-
-      &:focus div {
-        display: none;
-      }
-    }
-
-    .dropdown-button {
-      display: inline-block;
-      background-color: transparent;
-      font-size: 15px;
-      cursor: pointer;
-      padding: 8px;
-      margin-left: 50px;
-      border: none;
-      color: white;
-      margin-bottom: 20px;
-    }
-
-    .dropdown-content {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      background-color: black;
-      margin-left: 20px;
-
-      &.show {
-        display: flex;
+  <head>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
 
-      & a {
-        padding: 12px 16px;
-        text-decoration: none;
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        background-color: #101010;
         color: white;
-      }
-      & a:hover{
-        background-color: rgba(255, 255, 255, 0.1);
+        min-height: 100vh;
       }
 
-    }
-
-    .sidebar-nav li {
-      padding: 0 30px;
-      & a{
-      display: block;
-      color: white;
-      text-decoration: none;
-      padding: 8px 0;
-      margin-top: 10px;
+      .dashboard {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        min-height: 100vh;
+        /* position: absolute; */
       }
-      & a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+
+      .sidebar {
+        border-right: 1px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
       }
-    }
-  
-    .main-content {
-    padding: 20px;
-    }
 
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-      margin-bottom: 30px;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      width: 500px;
-      justify-content: space-evenly;
-        & a{
-      color: white;
-      text-decoration: none;
-      padding: 8px 12px;
+      .sidebar-content {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px 0;
       }
-      & a:hover{
-        background-color: rgba(255, 255, 255, 0.1);
+
+      .sidebar-section {
+        & h2 {
+          padding: 0 30px;
+          margin-bottom: 20px;
+        }
       }
-    }
 
-    .help-img {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-    }
+      .dropdown {
+        position: relative;
+        display: inline-block;
 
-    .logo_img {
-      background: url("./photo/css.png") no-repeat center;
-      background-size: cover;
-      height: 45px;
-      width: 45px;
-      border: 1px solid rgba(255, 255, 255, 0.32);
-      border-radius: 8px;
-    }
-  
-    .search-container {
-      display: flex;
-      align-items: center;
-      position: relative;
-      padding-left: 36px;
-      background-color: rgba(255, 255, 255, 0.12);
-      border: none;
-      border-radius: 50vh;
-      height: 37px;
-    }
-    .search-input{
-      color:white;
-      background-color:transparent;
-      border:none;
-    }
+        &:focus div {
+          display: none;
+        }
+      }
 
-    .categories-grid {
-      display: flex;
-      justify-content: center;
-      gap:10px;
-    }
+      .dropdown-button {
+        display: inline-block;
+        background-color: transparent;
+        font-size: 15px;
+        cursor: pointer;
+        padding: 8px;
+        margin-left: 50px;
+        border: none;
+        color: white;
+        margin-bottom: 20px;
+      }
 
-    .category-card {
-      background-color:rgba(255, 255, 255, 0.12);
-      border-radius: 50vh;
-      padding: 10px;
-      text-align: center;
-      &:hover {
-      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-    }
-  }
+      .dropdown-content {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: black;
+        margin-left: 20px;
 
-  .gallery-container{
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: repeat(4,1fr);
-    margin-top: 30px;
-    gap: 10px;
-    }
+        &.show {
+          display: flex;
+        }
 
-  .column-img{
-    margin: 0 auto;
-    overflow:hidden;  
-    & img{
-      margin-bottom: 5px;
-      aspect-ratio: 1 / 1;
-      width: 100%;
-      height:auto;
-      object-fit: cover;
-    }
-  }
+        & a {
+          padding: 12px 16px;
+          text-decoration: none;
+          color: white;
+        }
+        & a:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
 
-  .relative {
-      position: relative;
-    }
+      .sidebar-nav li {
+        padding: 0 30px;
+        & a {
+          display: block;
+          color: white;
+          text-decoration: none;
+          padding: 8px 0;
+          margin-top: 10px;
+        }
+        & a:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
 
-    .absolute {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      top: 50%;
-      left: 8px;
-      transform: translateY(-50%);
-    }
+      .main-content {
+        padding: 20px;
+      }
 
-    .flex-1 {
-      flex: 1;
-    }
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        margin-bottom: 30px;
+      }
 
-  </style>
-</head>
+      .nav-links {
+        display: flex;
+        list-style: none;
+        width: 500px;
+        justify-content: space-evenly;
+        & a {
+          color: white;
+          text-decoration: none;
+          padding: 8px 12px;
+        }
+        & a:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
 
-<body>
+      .help-img {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+      }
 
-  <div class="dashboard">
-    <aside class="sidebar">
-      <div class="sidebar-section">
-        <h2>Dashboard</h2>
+      .logo_img {
+        background: url("./photo/css.png") no-repeat center;
+        background-size: cover;
+        height: 45px;
+        width: 45px;
+        border: 1px solid rgba(255, 255, 255, 0.32);
+        border-radius: 8px;
+      }
 
-        <div class="dropdown">
-          <button class="dropdown-button" onClick="handleClick()">.....</button>
-          <div type="button" class="dropdown-content">
-            <a href="#">Feed</a>
-            <a href="#">Edit</a>
-            <a href="#">Search</a>
+      .search-container {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding-left: 36px;
+        background-color: rgba(255, 255, 255, 0.12);
+        border: none;
+        border-radius: 50vh;
+        height: 37px;
+      }
+      .search-input {
+        color: white;
+        background-color: transparent;
+        border: none;
+      }
+
+      .categories-grid {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .category-card {
+        background-color: rgba(255, 255, 255, 0.12);
+        border-radius: 50vh;
+        padding: 10px;
+        text-align: center;
+        &:hover {
+          box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      .gallery-container {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: 30px;
+        gap: 10px;
+      }
+
+      .column-img {
+        margin: 0 auto;
+        overflow: hidden;
+        & img {
+          margin-bottom: 5px;
+          aspect-ratio: 1 / 1;
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
+      }
+
+      .relative {
+        position: relative;
+      }
+
+      .absolute {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 50%;
+        left: 8px;
+        transform: translateY(-50%);
+      }
+
+      .flex-1 {
+        flex: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <aside class="sidebar">
+        <div class="sidebar-content">
+          <div class="sidebar-section">
+            <h2>Dashboard</h2>
+
+            <div class="dropdown">
+              <button class="dropdown-button" onClick="handleClick()">
+                .....
+              </button>
+              <div type="button" class="dropdown-content">
+                <a href="#">Feed</a>
+                <a href="#">Edit</a>
+                <a href="#">Search</a>
+              </div>
+            </div>
+
+            <nav class="sidebar-nav">
+              <ul style="list-style-type: none">
+                <li><a href="#">Explore</a></li>
+                <li><a href="#">Bookmarks</a></li>
+                <li><a href="#">Downloads</a></li>
+                <li><a href="#">Notifications</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="sidebar-section">
+            <nav class="sidebar-nav">
+              <ul>
+                <li><a href="#">Settings</a></li>
+                <li>
+                  <a href="#">Help<img src="#" class="help-img" /></a>
+                </li>
+                <li>
+                  <a href="#">Profile<img src="#" class="profile-img" /></a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
+      </aside>
 
-        <nav class="sidebar-nav">
-          <ul style="list-style-type: none;">
-            <li><a href="#">Explore</a></li>
-            <li><a href="#">Bookmarks</a></li>
-            <li><a href="#">Downloads</a></li>
-            <li><a href="#">Notifications</a></li>
-          </ul>
-        </nav>
-      </div>
-      
-      <div class="sidebar-section">
-        <nav class="sidebar-nav">
-          <ul>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Help<img src="#" class="help-img"></a></li>
-            <li><a href="#">Profile<img src="#" class="profile-img"></a></li>
-          </ul>
-        </nav>
-      </div>
-    </aside>
-
-    
-    <main class="main-content">
-      <header>
-
-        <nav class="navbar">
+      <main class="main-content">
+        <header>
+          <nav class="navbar">
             <div class="logo_img"></div>
             <ul class="nav-links">
               <li><a href="#">Home</a></li>
@@ -258,53 +273,48 @@
               <li><a href="#">About</a></li>
             </ul>
             <div class="search-container">
-                <img src="#" class="absolute">
-                <input type="text" class="search-input" placeholder="Search...">
+              <img src="#" class="absolute" />
+              <input type="text" class="search-input" placeholder="Search..." />
             </div>
-        </nav>
-
-      </header>
+          </nav>
+        </header>
 
         <div class="categories-grid">
-            <div class="category-card"><img src="#">Nature</div>
-            <div class="category-card"><img src="#">Technology</div>
-            <div class="category-card"><img src="#">Animals</div>
-            <div class="category-card"><img src="#">Food</div>
-            <div class="category-card"><img src="#">Building</div>
-            <div class="category-card"><img src="#">Sport</div>
-            <div class="category-card"><img src="#">Car</div>
-            <div class="category-card"><img src="#">More</div>
+          <div class="category-card"><img src="#" />Nature</div>
+          <div class="category-card"><img src="#" />Technology</div>
+          <div class="category-card"><img src="#" />Animals</div>
+          <div class="category-card"><img src="#" />Food</div>
+          <div class="category-card"><img src="#" />Building</div>
+          <div class="category-card"><img src="#" />Sport</div>
+          <div class="category-card"><img src="#" />Car</div>
+          <div class="category-card"><img src="#" />More</div>
         </div>
 
         <div class="gallery-container">
           <div class="column-img">
-            <img src="./photo/self.png">
-            <img src="./photo/por.png">
+            <img src="./photo/self.png" />
+            <img src="./photo/por.png" />
           </div>
           <div class="column-img">
-            <img src="./photo/por.png">
-            <img src="./photo/self.png">
+            <img src="./photo/por.png" />
+            <img src="./photo/self.png" />
           </div>
           <div class="column-img">
-            <img src="./photo/self.png">
+            <img src="./photo/self.png" />
           </div>
           <div class="column-img">
-            <img src="./photo/por.png">
+            <img src="./photo/por.png" />
           </div>
         </div>
-      
-
-    </main>
-  </div>
-
+      </main>
+    </div>
 
     <script>
       function handleClick() {
         var click = document.querySelector(".dropdown-content");
-        console.log("click", click)
-        click.classList.toggle("show")
+        console.log("click", click);
+        click.classList.toggle("show");
       }
     </script>
-</body>
-
+  </body>
 </html>
