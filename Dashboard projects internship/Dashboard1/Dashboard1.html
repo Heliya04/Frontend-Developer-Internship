@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       * {
         margin: 0;
@@ -30,7 +31,7 @@
       }
 
       .sidebar-content {
-        position: fixed;
+        position:fixed;
         top: 0;
         bottom: 0;
         flex: 1;
@@ -104,8 +105,13 @@
       }
 
       .main-content {
+        position: sticky;
+        display: flex;
         padding: 20px;
+        flex: 1;
       }
+
+     
 
       .navbar {
         display: flex;
@@ -187,9 +193,6 @@
       }
 
     .column-img {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 0 4px;
       margin: 0 auto;
       overflow: hidden;
       & img {
@@ -202,18 +205,6 @@
       }
     }
 
-    @media screen and (max-width:800px) {
-      .column-img{
-        flex:100%;
-        max-width: 100%;
-      }
-    }
-@media screen and (max-width:600px) {
-      .column-img{
-        flex:50%;
-        max-width: 50%;
-      }
-    }
     
       .relative {
         position: relative;
@@ -279,6 +270,7 @@
       </aside>
 
       <main class="main-content">
+        <div class="main-f">
         <header>
           <nav class="navbar">
             <div class="logo_img"></div>
@@ -322,6 +314,7 @@
               <img src="./photo/por.png" />
               <img src="./photo/self.png" />
             </div>
+        </div>
         </div>
       </main>
     </div>
