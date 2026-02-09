@@ -232,7 +232,8 @@
           grid-template-columns: 90px 1fr;
           font-size: 10px;
           & h2{
-            font-size: 12px;
+            padding: 0 20px;
+            font-size: 15px;
           }
         }
         .sidebar{
@@ -242,8 +243,10 @@
           margin-right: 15px;
         }
         .dropdown-button{
-          padding: 4px;
           margin-left: 40px;
+        }
+        .dropdown-content{
+          margin-left: 10px;
         }
         .navbar{
           flex-direction: column;
@@ -251,21 +254,18 @@
           gap:15px;
         }
         .nav-links{
-          flex-wrap: wrap;
-          align-items: flex-start;
-          gap:5px;
+          
         }
         .logo_img{
-          margin-left: 40px
+          height: 40px;
+          width: 40px;
         }
         .search-container{
-          align-items: center;
+          width: 100px;
+          height: 20px;
         }
         .categories-grid{
           justify-content: flex-start;
-        }
-        .category-card{
-          
         }
         .gallery-container{
           grid-template-columns: 1fr;
@@ -287,8 +287,7 @@
             <h2>Dashboard</h2>
 
             <div class="dropdown">
-              <button class="dropdown-button" onClick="handleClick()">
-                .....
+              <button class="dropdown-button" onClick="handleClick()" >.....
               </button>
               <div type="button" class="dropdown-content">
                 <a href="#">Feed</a>
